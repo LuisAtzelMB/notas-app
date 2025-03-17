@@ -4,6 +4,22 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
 import "../app/globals.css";
 
+const errorMessages = {
+  "auth/invalid-email": "El correo electrónico no es válido.",
+  "auth/user-not-found":
+    "No se encontró una cuenta con este correo electrónico.",
+  "auth/wrong-password": "La contraseña es incorrecta.",
+  "auth/network-request-failed":
+    "Error de red. Verifica tu conexión a internet.",
+  "auth/too-many-requests": "Demasiados intentos. Intenta de nuevo más tarde.",
+  default: "Ocurrió un error. Por favor, inténtalo de nuevo.",
+};
+
+// Función para obtener el mensaje de error en español
+const getErrorMessage = (errorCode) => {
+  return errorMessages[errorCode] || errorMessages.default;
+};
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +33,7 @@ export default function Login() {
       router.push("/dashboard"); // Redirige al usuario al dashboard
     } catch (error) {
       console.error("Error al iniciar sesión", error.message);
-      setError("Correo o contraseña invalidos"); // Actualiza el estado de error
+      setError(getErrorMessage(error.code)); // Actualiza el estado de error
     }
   };
   const handleRegisterRedirect = () => {
@@ -26,7 +42,7 @@ export default function Login() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="border-2 border-slate-300 p-8 rounded-2xl bg-white shadow-md">
+      <div className="w-90 border-2 border-slate-300 p-8 rounded-2xl bg-white shadow-md">
         <h1 className="text-2xl font-bold text-center p-4">Iniciar Sesión</h1>
         {error && ( // Muestra el mensaje de error si existe
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
