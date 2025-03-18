@@ -1,4 +1,4 @@
-import { withAuth } from "../components/withAuth"; // Importa el HOC
+import { withAuth } from "../../components/withAuth"; // Importa el HOC
 
 function Profile() {
   return (
