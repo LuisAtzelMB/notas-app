@@ -128,62 +128,94 @@ function Dashboard({ user }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-2xl font-bold">Bienvenido al Dashboard</h1>
-      <p>Has iniciado sesión como: {user.email}</p>
-      <button
-        onClick={handleLogout}
-        className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-      >
-        Cerrar sesión
-      </button>
-      <form
-        onSubmit={notaEditando ? editarNota : crearNota}
-        className="mt-4 w-full max-w-md"
-      >
-        <input
-          type="text"
-          placeholder="Título"
-          value={titulo}
-          onChange={(e) => setTitulo(e.target.value)}
-          className="w-full p-2 mb-2 border rounded"
-          required
-        />
-        <textarea
-          placeholder="Contenido"
-          value={contenido}
-          onChange={(e) => setContenido(e.target.value)}
-          className="w-full p-2 mb-2 border rounded"
-          required
-        />
+    <div className="bg-[#98D2C0] min-h-screen">
+      <div className="flex flex-row justify-between p-8 bg-[#205781]  items-center ">
+        <p className="text-2xl font-bold font-serif text-white">
+          Has iniciado sesión como: {user.email}
+        </p>
         <button
-          type="submit"
-          className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onClick={handleLogout}
+          className="mt-4 px-4 py-2 bg-[#4F959D] text-white rounded hover:bg-red-600"
         >
-          {notaEditando ? "Actualizar Nota" : "Crear Nota"}
+          Cerrar sesión
         </button>
-        {notaEditando && (
-          <button
-            type="button"
-            onClick={() => {
-              setTitulo("");
-              setContenido("");
-              setNotaEditando(null);
-            }}
-            className="w-full mt-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+      </div>
+      <h1 className="text-6xl font-bold text-center p-8">
+        Bienvenido al Dashboard
+      </h1>
+      <div className="flex flex-col justify-center items-center  ">
+        <div
+          className="bg-[#F6F8D5] p-8 rounded-2xl relative"
+          style={{
+            clipPath: "polygon(0% -200%, 100% 12%, 100% 100%, 0% 100%)",
+          }}
+        >
+          {/* Pseudo-elemento para el doblez */}
+          <div className=" absolute top-0 right-0 w-8 h-8 bg-gradient-to-br from-transparent to-[#d1d5a0]  clip-triangle shadow "></div>
+
+          <form
+            onSubmit={notaEditando ? editarNota : crearNota}
+            className="mt-4 w-full max-w-md "
           >
-            Cancelar Edición
-          </button>
-        )}
-      </form>
+            <input
+              type="text"
+              placeholder="Título"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              className="w-full p-2 mb-2 focus:outline-none border-b border-gray-300"
+              required
+            />
+            <textarea
+              placeholder="Contenido"
+              value={contenido}
+              onChange={(e) => setContenido(e.target.value)}
+              className="w-full p-2 mb-2 border-b border-gray-300 focus:outline-none"
+              required
+            />
+            <button
+              type="submit"
+              className="w-full px-4 py-2 bg-[#4F959D] text-white rounded hover:bg-[#205781] active:bg-[#3B7A7F] transition-colors"
+            >
+              {notaEditando ? "Actualizar Nota" : "Crear Nota"}
+            </button>
+            {notaEditando && (
+              <button
+                type="button"
+                onClick={() => {
+                  setTitulo("");
+                  setContenido("");
+                  setNotaEditando(null);
+                }}
+                className="w-full mt-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+              >
+                Cancelar Edición
+              </button>
+            )}
+          </form>
+        </div>
+      </div>
+
       {/* Lista de notas */}
-      <div className="mt-6 w-full max-w-md">
-        <h2 className="text-xl font-semibold">Tus Notas</h2>
-        <ul>
+      <h2 className="text-xl font-semibold">Tus Notas</h2>
+      <div className="mt-6 w-full max-w-full overflow-x-auto">
+        <ul className="flex flex-row flex-wrap gap-4 p-4">
           {notas.map((nota) => (
-            <li key={nota.id} className="mt-4 p-4 bg-white rounded shadow">
+            <li
+              key={nota.id}
+              className="p-4 bg-[#F6F8D5] rounded shadow w-94 max-h-[300px] overflow-y-auto apple-scrollbar relative"
+              style={{
+                clipPath: "polygon(0% -110%, 100% 10%, 100% 100%, 0% 100%)",
+              }}
+            >
+              {/* Pseudo-elemento para el doblez */}
+              <div
+                className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-br from-transparent to-[#d1d5a0]"
+                style={{
+                  clipPath: "polygon(0% -200%, 100% 12%, 100% 100%, 0% 100%)",
+                }}
+              ></div>
               <h3 className="text-lg font-bold">{nota.titulo}</h3>
-              <p className="text-gray-700">{nota.contenido}</p>
+              <p className="text-gray-700 ">{nota.contenido}</p>
               <small className="text-gray-500">
                 {new Date(nota.fecha?.toDate()).toLocaleString()}
               </small>

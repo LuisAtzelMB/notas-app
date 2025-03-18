@@ -27,3 +27,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Estilos para navegadores basados en WebKit (Chrome, Safari, Edge) en este caso me decidi a recrear el del apple 11*/
+::-webkit-scrollbar {
+  width: 6px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Fondo transparente */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Color de la barra (gris semitransparente) */
+  border-radius: 3px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5); /* Color de la barra al pasar el cursor */
+}
+
+/* Estilos para Firefox */
+* {
+  scrollbar-width: thin; /* Ancho de la barra */
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Color de la barra y la pista */
+}
