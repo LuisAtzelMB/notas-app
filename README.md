@@ -43,9 +43,9 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 
 3.**Configura las variables de entorno:**
 
-        Crea un archivo .env.local en la raíz del proyecto.
+   Crea un archivo .env.local en la raíz del proyecto.
 
-        Agrega las siguientes variables con los datos de tu proyecto de Firebase:
+   Agrega las siguientes variables con los datos de tu proyecto de Firebase:
        
 
         NEXT_PUBLIC_FIREBASE_API_KEY="Aqui van los datos de tu proyecto en firebase"
