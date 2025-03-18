@@ -34,16 +34,18 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 ### Pasos para Configurar
 
 1. **Clona el repositorio**:
+
    git clone https://github.com/LuisAtzelMB/notas-app.git
+
    cd notas-app
-    Instala las dependencias:
+ 
     
-2. **Instala dependencias**:
+3. **Instala dependencias**:
     npm install
 
 3.**Configura las variables de entorno:**
 
-   Crea un archivo .env.local en la raíz del proyecto.
+   Crea un archivo .env.local en la raíz del proyecto por seguridad.
 
    Agrega las siguientes variables con los datos de tu proyecto de Firebase:
        
@@ -56,10 +58,14 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
         NEXT_PUBLIC_FIREBASE_APP_ID="Aqui van los datos de tu proyecto en firebase"
         NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="Aqui van los datos de tu proyecto en firebase"
 
+
 4.**Ejecuta el proyecto en modo desarrollo:**
+    
     npm run dev
+    
 5. **Abre tu navegador:**
-    Abre tu navegador:
+
+   Abre tu navegador:
 
         Visita http://localhost:3000 para ver la aplicación en funcionamiento.
 
@@ -69,8 +75,7 @@ Si deseas desplegar la aplicación en Firebase Hosting, sigue estos pasos:
 
 1.**Instala Firebase CLI:**
    
-
-    npm install -g firebase-tools
+   npm install -g firebase-tools
 
 2.**Inicia sesión en Firebase:**
     
@@ -90,7 +95,7 @@ Si deseas desplegar la aplicación en Firebase Hosting, sigue estos pasos:
 
 5.**Accede a tu aplicación:**
 
-        Visita la URL proporcionada por Firebase (por ejemplo, https://notas-app-fa972.web.app).
+        Visita la URL proporcionada por Firebase (por ejemplo, https://notas-app-fa971242.web.app).
 
 **Aprendizaje y Objetivos**
 
