@@ -34,7 +34,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 ### Pasos para Configurar
 
 1. **Clona el repositorio**:
-   git clone https://github.com/tu-usuario/notas-app.git
+   git clone https://github.com/LuisAtzelMB/notas-app.git
    cd notas-app
     Instala las dependencias:
     
