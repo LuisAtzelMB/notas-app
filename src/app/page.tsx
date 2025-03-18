@@ -1,5 +1,15 @@
+"use client"; // Marca este componente como un Client Component
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation"; // Usa next/navigation en lugar de next/router
+
 export default function Home() {
-  return (
-    <h1 className="text-3xl font-bold underline text-red-500">Hello world!</h1>
-  );
+  const router = useRouter();
+
+  // Redirige a /dashboard cuando el componente se monta
+  useEffect(() => {
+    router.push("/dashboard");
+  }, [router]);
+
+  return null; // No renderiza nada en la página Home
 }

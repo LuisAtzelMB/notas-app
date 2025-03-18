@@ -12,7 +12,7 @@ const errorMessages = {
   "auth/network-request-failed":
     "Error de red. Verifica tu conexión a internet.",
   "auth/too-many-requests": "Demasiados intentos. Intenta de nuevo más tarde.",
-  default: "Ocurrió un error. Por favor, inténtalo de nuevo.",
+  default: "Contraseña o correo incorrectos. Por favor, inténtalo de nuevo.",
 };
 
 // Función para obtener el mensaje de error en español
@@ -65,7 +65,7 @@ export default function Login() {
             required
           />
           <button
-            className="px-4 py-2 border-2 rounded-2xl bg-blue-400 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 "
+            className="px-4 py-2 border-2 rounded-2xl bg-blue-400 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 active:bg-gray-200"
             type="submit"
           >
             Entrar
