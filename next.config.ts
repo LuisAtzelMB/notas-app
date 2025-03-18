@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export", // Habilita la exportación estática
 };
 
 export default nextConfig;
-
-module.exports = {
-  output: "export", // Habilita la exportación estática
-};
