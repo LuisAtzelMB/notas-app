@@ -13,12 +13,52 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
+// Hook para manejar el cierre de sesión por inactividad
+const useInactivityLogout = (timeoutDuration = 15 * 60 * 1000) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    let inactivityTimer;
+
+    const resetTimer = () => {
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(logoutUser, timeoutDuration);
+    };
+
+    const logoutUser = async () => {
+      try {
+        await signOut(auth);
+        console.log("Sesión cerrada por inactividad");
+        router.push("/login"); // Redirige al usuario a la página de login
+      } catch (error) {
+        console.error("Error al cerrar sesión:", error);
+      }
+    };
+
+    // Eventos para detectar actividad
+    const events = ["mousemove", "keydown", "scroll"];
+    events.forEach((event) => window.addEventListener(event, resetTimer));
+
+    // Iniciar el temporizador
+    resetTimer();
+
+    // Limpiar eventos y temporizador al desmontar el componente
+    return () => {
+      events.forEach((event) => window.removeEventListener(event, resetTimer));
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+    };
+  }, [timeoutDuration, router]);
+};
+
 function Dashboard({ user }) {
   const router = useRouter();
   const [titulo, setTitulo] = useState("");
   const [contenido, setContenido] = useState("");
   const [notas, setNotas] = useState([]);
   const [notaEditando, setNotaEditando] = useState(null);
+
+  // Cerrar sesión después de 15 minutos de inactividad
+  useInactivityLogout(15 * 60 * 1000); // 15 minutos en milisegundos
 
   // Función para cerrar sesión
   const handleLogout = async () => {
