@@ -168,14 +168,14 @@ function Dashboard({ user }) {
   };
 
   return (
-    <div className="bg-[#98D2C0] min-h-screen">
-      <div className="flex flex-row justify-between p-8 bg-[#205781]  items-center ">
-        <p className="text-2xl font-bold font-serif text-white">
+    <div className="bg-[#98D2C0] min-h-screen w-full overflow-hidden">
+      <div className="flex flex-col md:flex-row justify-between p-4 md:p-8 bg-[#205781] items-center ">
+        <p className="text-xl md:text-2xl font-bold font-serif text-white text-center md:text-left mb-4 md:mb-0">
           Has iniciado sesión como: {user.email}
         </p>
         <button
           onClick={handleLogout}
-          className="mt-4 px-4 py-2 bg-[#4F959D] text-white rounded hover:bg-red-600"
+          className="w-full md:w-auto px-4 py-2 bg-[#4F959D] text-white rounded hover:bg-red-600"
         >
           Cerrar sesión
         </button>
@@ -238,11 +238,11 @@ function Dashboard({ user }) {
       {/* Lista de notas */}
       <h2 className="text-xl font-semibold">Tus Notas</h2>
       <div className="mt-6 w-full max-w-full overflow-x-auto">
-        <ul className="flex flex-row flex-wrap gap-4 p-4">
+        <ul className="flex flex-row flex-wrap gap-4 p-4 ">
           {notas.map((nota) => (
             <li
               key={nota.id}
-              className="p-4 bg-[#F6F8D5] rounded shadow w-94 max-h-[300px] overflow-y-auto apple-scrollbar relative"
+              className="p-4 bg-[#F6F8D5] rounded shadow w-94 max-h-[300px]  overflow-y-auto apple-scrollbar relative"
               style={{
                 clipPath: "polygon(0% -110%, 100% 10%, 100% 100%, 0% 100%)",
               }}

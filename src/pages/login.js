@@ -41,15 +41,20 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gray-100 overflow-hidden">
       <div className="w-90 border-2 border-slate-300 p-8 rounded-2xl bg-white shadow-md">
-        <h1 className="text-2xl font-bold text-center p-4">Iniciar Sesión</h1>
+        <h1 className="text-2xl font-bold text-center p-4 text-black">
+          Iniciar Sesión
+        </h1>
         {error && ( // Muestra el mensaje de error si existe
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
             {error}
           </div>
         )}
-        <form onSubmit={handleLogin} className="flex flex-col gap-4 p-4">
+        <form
+          onSubmit={handleLogin}
+          className="flex flex-col gap-4 p-4 text-black"
+        >
           <input
             className="p-2  rounded focus:outline-none  "
             type="email"
@@ -58,7 +63,7 @@ export default function Login() {
             required
           />
           <input
-            className="p-2  focus:outline-none  "
+            className="p-2  focus:outline-none text-black "
             type="password"
             placeholder="Contraseña"
             onChange={(e) => setPassword(e.target.value)}

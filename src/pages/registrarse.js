@@ -48,9 +48,9 @@ export default function Registrarse() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gray-100 overflow-hidden">
       <div className=" w-90 border-2 border-slate-300 p-8 rounded-2xl bg-white shadow-md text-center">
-        <h1 className="text-2xl font-bold p-4">Registrarse</h1>
+        <h1 className="text-2xl font-bold p-4 text-black">Registrarse</h1>
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
             {error}
@@ -58,7 +58,7 @@ export default function Registrarse() {
         )}
         <form onSubmit={handleRegister} className="flex flex-col p-4 ">
           <input
-            className="p-3 focus:outline-none"
+            className="p-3 focus:outline-none text-black"
             type="email"
             placeholder="Correo"
             value={email}
@@ -66,7 +66,7 @@ export default function Registrarse() {
             required
           ></input>
           <input
-            className="p-3 focus:outline-none"
+            className="p-3 focus:outline-none text-black"
             type="password"
             placeholder="Contraseña"
             value={password}
