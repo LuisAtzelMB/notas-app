@@ -170,17 +170,17 @@ function Dashboard({ user }) {
   return (
     <div className="bg-[#98D2C0] min-h-screen w-full overflow-hidden">
       <div className="flex flex-col md:flex-row justify-between p-4 md:p-8 bg-[#205781] items-center ">
-        <p className="text-xl md:text-2xl font-bold font-serif text-white text-center md:text-left mb-4 md:mb-0">
+        <p className="text-black ext-black text-xl md:text-2xl font-bold font-serif text-white text-center md:text-left mb-4 md:mb-0">
           Has iniciado sesión como: {user.email}
         </p>
         <button
           onClick={handleLogout}
-          className="w-full md:w-auto px-4 py-2 bg-[#4F959D] text-white rounded hover:bg-red-600"
+          className="text-black w-full md:w-auto px-4 py-2 bg-[#4F959D] text-white rounded hover:bg-red-600"
         >
           Cerrar sesión
         </button>
       </div>
-      <h1 className="text-6xl font-bold text-center p-8">
+      <h1 className="text-black text-6xl font-bold text-center p-8">
         Bienvenido al Dashboard
       </h1>
       <div className="flex flex-col justify-center items-center  ">
@@ -202,14 +202,14 @@ function Dashboard({ user }) {
               placeholder="Título"
               value={titulo}
               onChange={(e) => setTitulo(e.target.value)}
-              className="w-full p-2 mb-2 focus:outline-none border-b border-gray-300"
+              className="text-black w-full p-2 mb-2 focus:outline-none border-b border-gray-300"
               required
             />
             <textarea
               placeholder="Contenido"
               value={contenido}
               onChange={(e) => setContenido(e.target.value)}
-              className="w-full p-2 mb-2 border-b border-gray-300 focus:outline-none"
+              className="text-black w-full p-2 mb-2 border-b border-gray-300 focus:outline-none"
               required
             />
             <button
@@ -254,7 +254,7 @@ function Dashboard({ user }) {
                   clipPath: "polygon(0% -200%, 100% 12%, 100% 100%, 0% 100%)",
                 }}
               ></div>
-              <h3 className="text-lg font-bold">{nota.titulo}</h3>
+              <h3 className="text-black text-lg font-bold">{nota.titulo}</h3>
               <p className="text-gray-700 ">{nota.contenido}</p>
               <small className="text-gray-500">
                 {new Date(nota.fecha?.toDate()).toLocaleString()}
