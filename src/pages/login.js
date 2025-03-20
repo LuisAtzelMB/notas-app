@@ -56,7 +56,7 @@ export default function Login() {
           className="flex flex-col gap-4 p-4 text-black"
         >
           <input
-            className="p-2  rounded focus:outline-none  "
+            className="p-2  rounded focus:outline-none  text-black"
             type="email"
             placeholder="Correo"
             onChange={(e) => setEmail(e.target.value)}
@@ -77,7 +77,9 @@ export default function Login() {
           </button>
         </form>
         <div className="flex items-center justify-center">
-          <button onClick={handleRegisterRedirect}>Crear cuenta</button>
+          <button className="text-black" onClick={handleRegisterRedirect}>
+            Crear cuenta
+          </button>
         </div>
       </div>
     </div>

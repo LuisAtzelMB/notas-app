@@ -74,7 +74,7 @@ export default function Registrarse() {
             required
           ></input>
           <input
-            className="p-3 focus:outline-none"
+            className="p-3 focus:outline-none text-black"
             type="password"
             placeholder="Confirmar contraseña"
             value={confirmPassword}
@@ -90,7 +90,7 @@ export default function Registrarse() {
           </button>
         </form>
         <div>
-          <button onClick={() => router.push("/login")}>
+          <button className="text-black" onClick={() => router.push("/login")}>
             ¿Ya tienes una cuenta?
           </button>
         </div>
